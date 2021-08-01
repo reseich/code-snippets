@@ -1,0 +1,49 @@
+body{
+    display: grid;
+    place-content: center;
+    text-align: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    font-family: "Source Code Pro", monospace;
+    max-width: max-content;
+    position: relative;
+}
+
+h1::after, h1::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+h1::before{
+    background-color: white;
+    animation: textWrite 2s steps(23) 2s infinite alternate;
+}
+
+h1::after{
+    background-color: black;
+    width: 3px;
+    opacity: 0;
+    animation: blink 800ms  infinite,  textWrite 2s steps(23) 2s infinite alternate ;
+}
+
+@keyframes textWrite {
+   
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        opacity:1;
+    }
+}
